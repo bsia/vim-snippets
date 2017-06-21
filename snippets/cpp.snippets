@@ -76,6 +76,10 @@ snippet mu
 	mutable
 ##
 ## Class
+# Copy Constructor and Assignment Declaration 
+snippet copyctor
+	${1:`vim_snippets#Filename('$1', 'name')`}(const $1 &other);
+	$1 &operator=(const $1 &other);
 # class
 snippet cl
 	/*! \class $1
@@ -91,6 +95,11 @@ snippet cl
 
 	protected:
 		m_${5}; /*!< ${6:Member description} */
+
+	private:
+		$1(const $1 &other);
+		$1 &operator=(const $1 &other);
+		${0:/* data */}
 	};
 # member function implementation
 snippet mfun
